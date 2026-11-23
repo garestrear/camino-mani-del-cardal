@@ -74,6 +74,15 @@
           "value": "no-cache"
         }
       ]
+    },
+    {
+      "source": "/obra.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
     }
   ]
 }

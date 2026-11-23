@@ -4,3 +4,13 @@
 #install-help{max-width:min(34rem,92vw);padding:1.4rem;border:1px solid var(--line);border-radius:.8rem;color:inherit}
 #install-help::backdrop{background:#14261ca8}
 #install-help form{margin-bottom:0}
+
+#road-map{height:clamp(320px,58vh,560px);border-radius:.85rem;border:1px solid var(--line)}
+#map-legend,#refresh-review{margin:.75rem 0}
+#tramos .button{display:table;margin-top:.65rem}
+#panel details{margin-top:1rem}
+#gallery-filter{max-width:24rem}
+#gallery-items img,#gallery-items video,#review-items img,#review-items video{display:block;width:100%;max-height:22rem;object-fit:contain;background:#eef2ed;border-radius:.5rem}
+#review-items button{margin:.5rem .35rem 0 0}
+.check{display:flex;align-items:flex-start;gap:.55rem}
+.check input{width:auto;margin-top:.35rem}

@@ -10,11 +10,14 @@
 <title>Camino Maní del Cardal</title>
 <link rel="stylesheet" href="app.css">
 <script src="config.js" defer></script>
+<link rel="stylesheet" href="/leaflet/leaflet.css">
+<script src="/leaflet/leaflet.js" defer></script>
 <script src="app.js" defer></script>
+<script src="/obra.js" defer></script>
 <script src="/pwa.js" defer></script>
 </head>
 <body>
-<header class="top"><div class="wrap"><a href="#">Camino Maní del Cardal</a><nav aria-label="Secciones"><a href="#avance">Avance</a><a href="#aportes">Aportes</a><a href="#historias">Historias</a><button id="install" type="button" hidden>Instalar</button></nav></div></header>
+<header class="top"><div class="wrap"><a href="#">Camino Maní del Cardal</a><nav aria-label="Secciones"><a href="#avance">Avance</a><a href="#aportes">Aportes</a><a href="#galeria">Galería</a><a href="#historias">Historias</a><button id="install" type="button" hidden>Instalar</button></nav></div></header>
 <dialog id="install-help" aria-labelledby="install-title">
   <h2 id="install-title">Instalar Camino Maní del Cardal</h2>
   <p id="install-steps"></p>
@@ -23,9 +26,26 @@
 <main class="wrap">
 <section class="hero"><div><p class="location">VEREDA MANÍ DEL CARDAL · AMAGÁ</p><h1>El camino que<br>hacemos juntos</h1><p>Consulta el avance de la pavimentación y descubre cómo sumarte a la obra comunitaria.</p><a class="button" href="#necesidades">Cómo aportar</a></div><div class="measure"><strong>1,4 km</strong><span>Longitud estimada del camino</span></div></section>
 <p id="status" role="status"></p>
-<section id="avance"><h2>Avance del camino</h2><p id="summary"></p><div id="tramos" class="grid"></div></section>
+<section id="avance"><h2>Avance del camino</h2><p id="summary"></p><p id="map-status" role="status"></p><div id="road-map" aria-label="Mapa del camino" hidden></div>
+<p id="map-legend" hidden><span class="state pavimentado">Pavimentado</span> <span class="state en-obra">En obra</span> <span class="state">Pendiente</span></p>
+<div id="tramos" class="grid"></div></section>
 <section id="aportes"><h2>Aportes recibidos</h2><div id="totals" class="grid"></div><p class="muted">Los totales reúnen los aportes registrados por el equipo coordinador.</p></section>
 <section id="necesidades"><h2>¿Qué hace falta?</h2><div id="needs" class="grid"></div><a id="contact" class="button" hidden>Contactar al equipo</a></section>
+<section id="galeria">
+<h2>Galería de la obra</h2>
+<details id="submission" hidden><summary>Aportar una foto o un video</summary>
+<form id="evidence-form">
+<label>Tramo<select name="tramo_id"><option value="">Sin identificar</option></select></label>
+<label>Etapa<select name="etapa"><option>Antes</option><option selected>Durante</option><option>Después</option></select></label>
+<label>Descripción opcional<textarea name="descripcion" maxlength="280"></textarea></label>
+<label>Archivo (hasta 10 MB)<input name="archivo" type="file" accept="image/jpeg,image/png,image/webp,video/mp4,video/quicktime,video/webm" required></label>
+<p>Los videos pueden durar hasta 30 segundos. El equipo revisará el aporte antes de publicarlo.</p>
+<label class="check"><input type="checkbox" required> Autorizo la publicación de este archivo y tengo permiso de las personas identificables que aparecen.</label>
+<button>Enviar aporte</button>
+</form></details>
+<label id="gallery-filter" hidden>Ver evidencias del tramo<select id="gallery-segment"><option value="">Todos los tramos</option></select></label>
+<p id="gallery-status" role="status"></p><div id="gallery-items" class="grid"></div>
+</section>
 <section id="historias"><h2>Historias del camino</h2><div id="stories" class="grid"></div></section>
 <section id="admin"><details><summary>Administración de la obra</summary>
 <form id="login"><label>Correo<input name="email" type="email" autocomplete="username" required></label><label>Contraseña<input name="password" type="password" autocomplete="current-password" required></label><button>Ingresar</button></form>
@@ -34,6 +54,16 @@
 <form id="editor"><label>Registro<select name="table"><option value="tramos">Tramo</option><option value="aportes">Aporte recibido</option><option value="necesidades">Necesidad</option><option value="historias">Anécdota</option></select></label>
 <div id="fields"></div><button>Guardar</button><button id="reset" type="button" hidden>Cancelar edición</button></form>
 <div id="records" class="grid"></div>
+<details id="map-admin" hidden><summary>Trazado del camino</summary>
+<form id="route-form">
+<label>Archivo GPX, KML o GeoJSON<input name="ruta" type="file" accept=".gpx,.kml,.geojson,.json" required></label>
+<p>El primer punto del archivo será el metro 0. Usa un recorrido continuo en el sentido acordado.</p>
+<button>Guardar trazado</button><p id="route-status" role="status"></p>
+</form></details>
+<details id="review-admin" hidden><summary>Revisar aportes de la galería</summary>
+<button type="button" id="refresh-review">Actualizar pendientes</button>
+<p id="review-status" role="status"></p><div class="grid" id="review-items"></div>
+</details>
 </div><p id="notice" role="status"></p></details></section>
 </main>
 <footer class="wrap">Proyecto comunitario de pavimentación · Maní del Cardal, Amagá</footer>
