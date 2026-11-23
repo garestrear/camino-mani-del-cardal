@@ -17,4 +17,4 @@ La página pública muestra tramos, necesidades activas, historias publicadas y 
 
 ## GitHub y Vercel
 
-Sube la carpeta completa al repositorio `garestrear/camino-mani-del-cardal`. Impórtalo a Vercel desde la cuenta universitaria. La configuración de Vercel publica solo `public/`, por lo que la migración y este README quedan en el repositorio. Abre la URL de Vercel, inicia sesión con la cuenta coordinadora y prueba un registro desde el panel. Verifica en una ventana privada que solo aparezcan los datos públicos.
+Importa el repositorio `garestrear/camino-mani-del-cardal` a Vercel desde la cuenta universitaria. La configuración de Vercel publica solo `public/`, por lo que la migración y este README quedan en el repositorio. Abre la URL de Vercel, inicia sesión con la cuenta coordinadora y prueba un registro desde el panel. Verifica en una ventana privada que solo aparezcan los datos públicos.

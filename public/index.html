@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Avance y aportes de la pavimentación comunitaria de Maní del Cardal, Amagá.">
+<title>Camino Maní del Cardal</title>
+<link rel="stylesheet" href="app.css">
+<script src="config.js" defer></script>
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="top"><div class="wrap"><a href="#">Camino Maní del Cardal</a><nav aria-label="Secciones"><a href="#avance">Avance</a><a href="#aportes">Aportes</a><a href="#historias">Historias</a></nav></div></header>
+<main class="wrap">
+<section class="hero"><div><p class="location">VEREDA MANÍ DEL CARDAL · AMAGÁ</p><h1>El camino que<br>hacemos juntos</h1><p>Consulta el avance de la pavimentación y descubre cómo sumarte a la obra comunitaria.</p><a class="button" href="#necesidades">Cómo aportar</a></div><div class="measure"><strong>1,4 km</strong><span>Longitud estimada del camino</span></div></section>
+<p id="status" role="status"></p>
+<section id="avance"><h2>Avance del camino</h2><p id="summary"></p><div id="tramos" class="grid"></div></section>
+<section id="aportes"><h2>Aportes recibidos</h2><div id="totals" class="grid"></div><p class="muted">Los totales reúnen los aportes registrados por el equipo coordinador.</p></section>
+<section id="necesidades"><h2>¿Qué hace falta?</h2><div id="needs" class="grid"></div><a id="contact" class="button" hidden>Contactar al equipo</a></section>
+<section id="historias"><h2>Historias del camino</h2><div id="stories" class="grid"></div></section>
+<section id="admin"><details><summary>Administración de la obra</summary>
+<form id="login"><label>Correo<input name="email" type="email" autocomplete="username" required></label><label>Contraseña<input name="password" type="password" autocomplete="current-password" required></label><button>Ingresar</button></form>
+<div id="panel" hidden>
+<button id="logout" type="button">Cerrar sesión</button>
+<form id="editor"><label>Registro<select name="table"><option value="tramos">Tramo</option><option value="aportes">Aporte recibido</option><option value="necesidades">Necesidad</option><option value="historias">Anécdota</option></select></label>
+<div id="fields"></div><button>Guardar</button><button id="reset" type="button" hidden>Cancelar edición</button></form>
+<div id="records" class="grid"></div>
+</div><p id="notice" role="status"></p></details></section>
+</main>
+<footer class="wrap">Proyecto comunitario de pavimentación · Maní del Cardal, Amagá</footer>
+</body></html>
