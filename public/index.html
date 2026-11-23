@@ -4,13 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Avance y aportes de la pavimentación comunitaria de Maní del Cardal, Amagá.">
+<meta name="theme-color" content="#214836">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icon-192.png">
 <title>Camino Maní del Cardal</title>
 <link rel="stylesheet" href="app.css">
 <script src="config.js" defer></script>
 <script src="app.js" defer></script>
+<script src="/pwa.js" defer></script>
 </head>
 <body>
-<header class="top"><div class="wrap"><a href="#">Camino Maní del Cardal</a><nav aria-label="Secciones"><a href="#avance">Avance</a><a href="#aportes">Aportes</a><a href="#historias">Historias</a></nav></div></header>
+<header class="top"><div class="wrap"><a href="#">Camino Maní del Cardal</a><nav aria-label="Secciones"><a href="#avance">Avance</a><a href="#aportes">Aportes</a><a href="#historias">Historias</a><button id="install" type="button" hidden>Instalar</button></nav></div></header>
+<dialog id="install-help" aria-labelledby="install-title">
+  <h2 id="install-title">Instalar Camino Maní del Cardal</h2>
+  <p id="install-steps"></p>
+  <form method="dialog"><button>Cerrar</button></form>
+</dialog>
 <main class="wrap">
 <section class="hero"><div><p class="location">VEREDA MANÍ DEL CARDAL · AMAGÁ</p><h1>El camino que<br>hacemos juntos</h1><p>Consulta el avance de la pavimentación y descubre cómo sumarte a la obra comunitaria.</p><a class="button" href="#necesidades">Cómo aportar</a></div><div class="measure"><strong>1,4 km</strong><span>Longitud estimada del camino</span></div></section>
 <p id="status" role="status"></p>
